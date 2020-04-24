@@ -2,6 +2,9 @@ const router = require('express').Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken"); 
 
+const Users = require("./user-model");
+// const secrets = require("../api/secrets");
+
 router.post('/register', (req, res) => {
   let user = req.body; // username, password
 
@@ -13,7 +16,7 @@ router.post('/register', (req, res) => {
   // update the user to use the hash
   user.password = lockdown;
 
-  Users.create(user).then(saved => {
+  Users.add(user).then(saved => {
   res.status(201).json(saved)
   }).catch(error => {
   console.log(error);
