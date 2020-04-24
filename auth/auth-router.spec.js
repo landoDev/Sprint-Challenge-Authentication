@@ -22,16 +22,14 @@ describe('auth-router', () => {
             };
             const existing = await db('users').where({username: newUser.username});
             expect(existing).toHaveLength(0)
-            const response = await request(server).post("api/auth/register")
-            .send({username: newUser.username})
-            .then(res => {
-                expect(res.body).toMatchObject({username: newUser.username});
-            })
-
+            await request(server).post("/api/auth/register")
+            .send(newUser)
             const inserted = await db('users').where({username: newUser.username});
             expect(inserted).toHaveLength(1)
         });
-        it.todo('should recieve an object with a username and password property')
+        it.todo('should recieve an object with a username and password property', () =>{
+            // use .toThrow when passing object with just username
+        })
     });
 
     describe("POST /login", () => {
