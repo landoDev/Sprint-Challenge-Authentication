@@ -3,6 +3,7 @@ const axios = require('axios');
 const router = require('express').Router();
 
 router.get('/', (req, res) => {
+  console.log('token', req.decodedToken)
   const requestOptions = {
     headers: { accept: 'application/json' },
   };
