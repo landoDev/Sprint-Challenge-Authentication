@@ -19,7 +19,7 @@ router.post('/register', (req, res) => {
   Users.add(user).then(saved => {
   res.status(201).json(saved)
   }).catch(error => {
-  console.log(error);
+  // console.log(error);
   res.status(500).json({ errorMessage: error.message })
   })
 });
@@ -42,7 +42,7 @@ router.post('/login', (req, res) => {
   }
 
   }).catch(error => {
-  console.log(error);
+  // console.log(error);
   res.status(500).json({ errorMessage: error.message })
   })
 });
