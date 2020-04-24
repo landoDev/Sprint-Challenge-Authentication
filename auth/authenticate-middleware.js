@@ -8,10 +8,11 @@ const secrets = require("../api/secrets");
 
 module.exports = (req, res, next) => {
   const token = req.headers.authorization;
-
+  console.log(token)
   const secret = secrets.jwtSecret;
 
   if(token){
+    
   // verify that the token is valid
   jwt.verify(token, secret, (err, decodedToken) => {
       // if everything is good with the token, the error will be undefined
