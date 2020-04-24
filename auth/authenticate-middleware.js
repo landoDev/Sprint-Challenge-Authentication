@@ -8,7 +8,7 @@ const secrets = require("../api/secrets");
 
 module.exports = (req, res, next) => {
   const token = req.headers.authorization;
-  console.log(token)
+  // console.log('token in middleware',token)
   const secret = secrets.jwtSecret;
 
   if(token){
